@@ -43,7 +43,7 @@ const Header = () => {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  function classNames(...classes){
+  function classNames(...classes) {
     return classes.filter(Boolean).join(" ")
   }
 
@@ -198,24 +198,72 @@ const Header = () => {
                     Not Found
                   </Link>
 
-                <Disclosure as='div' className='-mx-3'>
-                  {({open})=>(
-                    <>
-                    <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-800 hover:text-white duration-200">
-                      Pages Designs {" "}
-                      <ChevronDownIcon
-                      className={classNames(
-                        open ? "rotate-180" : "",
-                        "h-5 w-5 flex-none"
-                      )}
-                      aria-hidden="true"
-                      />
-                      </Disclosure.Button>
-                    </>
-                  )}
-                </Disclosure>
+                  <Disclosure as='div' className='-mx-3'>
+                    {({ open }) => (
+                      <>
+                        <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-800 hover:text-white duration-200">
+                          Pages Designs {" "}
+                          <ChevronDownIcon
+                            className={classNames(
+                              open ? "rotate-180" : "",
+                              "h-5 w-5 flex-none"
+                            )}
+                            aria-hidden="true"
+                          />
+                        </Disclosure.Button>
 
+                        <Disclosure.Panel>
+                          {pagesDesigns?.map((item) => (
+                            <Disclosure.Button
+                              key={item?.name}
+                              as="a"
+                              href={item?.href}
+                              className="block rounded-lg py-2 pl-6 pr-3 font-semibold leading-7 hover:bg-gray-800 hover:text-white duration-200"
+                            >
+                              {item?.name}
+                            </Disclosure.Button>
+                          ))}
+                        </Disclosure.Panel>
+                      </>
+                    )}
+                  </Disclosure>
+
+                  <Disclosure as='div' className='-mx-3'>
+                    {({ open }) => (
+                      <>
+                        <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-800 hover:text-white duration-200">
+                          Tailwind Designs {" "}
+                          <ChevronDownIcon
+                            className={classNames(
+                              open ? "rotate-180" : "",
+                              "h-5 w-5 flex-none"
+                            )}
+                            aria-hidden="true"
+                          />
+                        </Disclosure.Button>
+
+                        <Disclosure.Panel>
+                          {sectionDesigns?.map((item) => (
+                            <Disclosure.Button
+                              key={item?.name}
+                              as="a"
+                              href={item?.href}
+                              className="block rounded-lg py-2 pl-6 pr-3 font-semibold leading-7 hover:bg-gray-800 hover:text-white duration-200"
+                            >
+                              {item?.name}
+                            </Disclosure.Button>
+                          ))}
+                        </Disclosure.Panel>
+                      </>
+                    )}
+                  </Disclosure>
                 </div>
+                <Link
+                href={"/contactme"}
+                className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-800 hover:text-white duration-200"
+                >
+                  Contact Me <span>&rarr;</span>
+                </Link>
               </div>
             </div>
 
