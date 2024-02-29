@@ -66,6 +66,14 @@ const Footer = () => {
                     ))}
                 </div>
 
+                {/* last */}
+
+                    <p className="text-center text-xs leading-5 text-gray-500">
+                        &copy; All rights reserved 2024. 
+                        <br /><a href="https://github.com/MiladJoodi/Highly_Responsive_Website">Make with ❤️</a>
+                    </p>
+
+
             </div>
         </footer>
     );
